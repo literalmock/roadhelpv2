@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 const app = express();
 import cors from "cors";
+import mechanicModel from "./models/mechanic.model.js";
+import mechanicRoutes from "./routes/mechanic.route.js";
 
 dotenv.config();
 
@@ -21,6 +23,7 @@ app.use(cors({ origin: ["http://localhost:5173", "http://localhost:5174"], crede
 
 app.use(cookieParser());
 app.use('/api/v1/auth', authroutes);
+app.use('/api/v1/mechanics', mechanicRoutes);
 // app.use('/api/v1/movies' ,protectRoute, movieroutes);
 
 app.listen(PORT , () =>{
